@@ -9,4 +9,8 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "its_too_secret_dont_share"
   end
 
+  get '/' do
+    erb :'index'
+  end
+
 end
