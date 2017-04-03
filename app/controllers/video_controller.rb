@@ -10,8 +10,9 @@ class VideoController < ApplicationController
     erb :'videos/new'
   end
 
-  get '/videos/:language/:slug' do
-    erb :'videos/languages.erb'
+  get '/videos/:language/' do
+    @videos = Video.all
+    erb :'videos/languages'
   end
 
 end
