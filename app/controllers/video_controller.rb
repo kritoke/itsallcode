@@ -12,13 +12,18 @@ class VideoController < ApplicationController
   end
 
   post '/videos' do
-    video = Video.create(description: params[:description], url: params[:url], language: params[:language])
+    video = Video.create(description: params[:description], url: params[:url], language: params[:language].downcase)
     redirect "/videos/#{video.language}/#{video.id}"
   end
 
   get '/videos/:language' do
     @videos = Video.where(language: params[:language]) # make variable contain only :language
     erb :'videos/languages'
+  end
+
+  get '/videos/:language/:id' do
+    @video = Video.find_by(id: params[:id])
+    erb :'videos/show'
   end
 
 end
