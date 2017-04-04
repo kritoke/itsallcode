@@ -10,8 +10,8 @@ class VideoController < ApplicationController
     erb :'videos/new'
   end
 
-  get '/videos/:language/' do
-    @videos = Video.all
+  get '/videos/:language' do
+    @videos = Video.where(language: params[:language]) # make variable contain only :language
     erb :'videos/languages'
   end
 
