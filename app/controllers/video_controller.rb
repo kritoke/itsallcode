@@ -3,11 +3,17 @@ class VideoController < ApplicationController
   extend Slugifiable::ClassMethods
 
   get '/videos' do
+
     erb :'videos/index'
   end
 
   get '/videos/new' do
     erb :'videos/new'
+  end
+
+  post '/videos' do
+    video = Video.create(description: params[:description], url: params[:url], language: params[:language])
+    redirect "/videos/#{video.language}/#{video.id}"
   end
 
   get '/videos/:language' do
