@@ -5,5 +5,5 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
-use VideoController
-run ApplicationController
+use ApplicationController
+run VideoController

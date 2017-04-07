@@ -9,10 +9,15 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "its_too_secret_dont_share"
   end
 
+  get '/' do
+    @videos = Video.all
+    erb :'videos/index'
+  end
+
   get '/login/?' do
     erb :'users/login'
   end
-  
+
   post '/login' do
     if logged_in?
       redirect '/'
@@ -20,11 +25,20 @@ class ApplicationController < Sinatra::Base
       erb :'users/login'
     end
   end
-  
+
+  get '/logout/?' do
+    if logged_in?
+      session.clear
+      redirect '/login'
+    else
+      redirect '/'
+    end
+  end
+
   get '/signup/?' do
     erb :'users/signup'
   end
-  
+
   post '/signup' do
      if !params[:username].empty? && !params[:email].empty? && !params[:password].empty?
        user = User.create(username: params[:username], email: params[:email], password: params[:password])
@@ -34,7 +48,7 @@ class ApplicationController < Sinatra::Base
       redirect '/signup'
      end
   end
-  
+
   #helper functions
 
   helpers do
@@ -46,5 +60,5 @@ class ApplicationController < Sinatra::Base
       User.find(session[:id])
     end
   end
-  
+
 end

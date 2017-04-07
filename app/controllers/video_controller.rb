@@ -2,18 +2,17 @@ class VideoController < ApplicationController
   include Slugifiable::InstanceMethods
   extend Slugifiable::ClassMethods
 
-  get '/' do
-    @videos = Video.all
-    erb :'videos/index'
-  end
-
   get '/new/?' do
-    erb :'videos/new'
+    if logged_in?
+      erb :'videos/new'
+    else
+      redirect '/login'
+    end
   end
 
   post '/videos' do
     video = Video.create(description: params[:description], url: params[:url], language: params[:language].downcase)
-    redirect "/videos/#{video.language}/#{video.id}"
+    redirect "/#{video.language}/#{video.id}"
   end
 
   get '/:language/?' do
