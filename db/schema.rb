@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170402233359) do
     t.string  "language"
     t.string  "published"
     t.integer "view_count"
+    t.string  "yt_id"
   end
 
 end

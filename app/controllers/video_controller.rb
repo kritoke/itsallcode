@@ -11,8 +11,9 @@ class VideoController < ApplicationController
   end
 
   post '/videos' do
-    yt_video = Yt::Video.new id: params[:url]
-    video = Video.create(title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url, published: yt_video.published_at, language: params[:language].downcase)
+    url = Yt::URL.new params[:url]
+    yt_video = Yt::Video.new id: url.id
+    video = Video.create(title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url, published: yt_video.published_at, yt_id: yt_video.id, language: params[:language].downcase)
     redirect "/#{video.language}/#{video.id}"
   end
 

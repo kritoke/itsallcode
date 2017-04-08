@@ -107,7 +107,11 @@ GEM
     yt (0.30.0)
       activesupport
       yt-support (>= 0.1)
+    yt-core (0.1.2)
+      yt-support (>= 0.1.2)
     yt-support (0.1.2)
+    yt-url (1.0.0.beta2)
+      yt-core (>= 0.1.0)
 
 PLATFORMS
   ruby
@@ -130,6 +134,7 @@ DEPENDENCIES
   tux
   will_paginate
   yt
+  yt-url (~> 1.0.0.beta2)
 
 BUNDLED WITH
    1.14.6
