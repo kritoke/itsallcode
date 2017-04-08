@@ -1,0 +1,32 @@
+{
+  "name": "itsallcode",
+  "version": "1.0.0",
+  "description": "Video site for collecting various language videos for programming.",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-postcss": "^6.4.0",
+    "postcss": "^5.2.16"
+  },
+  "devDependencies": {
+    "normalize-css": "^2.3.1",
+    "postcss": "^5.2.16",
+    "precss": "^1.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kritoke/itsallcode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kritoke/itsallcode/issues"
+  },
+  "scripts": {
+  "start": "npm run css",
+  "css": "postcss -c postcss-options.json"
+},
+  "homepage": "https://github.com/kritoke/itsallcode#readme"
+}

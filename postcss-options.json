@@ -1,0 +1,6 @@
+{
+"use": ["precss", "cssnano", "lost-grid"],
+"input": "./CSS/style.css",
+"output": "./CSS/final.min.css",
+"local-plugins": true
+}

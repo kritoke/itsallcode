@@ -1,0 +1,8 @@
+<h1>Edit a Video</h1>
+<form action="/videos/<%= @video.id %>" method="POST">
+  <label for="url">Video URL: </label>
+  <input type="text" name="url" id="url" value="http://www.youtube.com/watch?v=<%= @video.yt_id %>" required>
+  <label for="language">Video Language: </label>
+  <input type="text" name="language" id="language" value="<%= @video.language %>" required>
+  <input type="submit" value="Edit Video" id="submit">
+</form>
