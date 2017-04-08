@@ -13,8 +13,10 @@ class VideoController < ApplicationController
   post '/videos' do
     url = Yt::URL.new params[:url]
     yt_video = Yt::Video.new id: url.id
-    video = Video.create(title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url, published: yt_video.published_at, yt_id: yt_video.id, language: params[:language].downcase)
-    redirect "/#{video.language}/#{video.id}"
+    video = Video.create(title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url, published: yt_video.published_at, yt_id: yt_video.id, language: params[:language])
+    video.language = video.slug
+    video.save
+    redirect "/#{video.slug}/#{video.id}"
   end
 
   get '/:language/?' do
@@ -42,8 +44,11 @@ class VideoController < ApplicationController
       if !params[:language].empty? && !params[:url].empty?
         url = Yt::URL.new params[:url]
         yt_video = Yt::Video.new id: url.id
-        video = Video.update(title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url, published: yt_video.published_at, yt_id: yt_video.id, language: params[:language].downcase)
-        redirect "/#{params[:language]}/#{params[:id]}"
+        Video.update(title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url, published: yt_video.published_at, yt_id: yt_video.id, language: params[:language])
+        video = Video.find_by(id: params[:id])
+        video.language = video.slug
+        video.save
+        redirect "/#{video.slug}/#{params[:id]}"
       else
         redirect "/#{params[:language]}/#{params[:id]}/edit"
       end
