@@ -1,5 +1,6 @@
 <% @videos.each do |video| %>
+Title: <%= video.title %><br />
 Description: <%= video.description %><br />
     Language: <%= video.language %><br />
-    Video URL: <%= video.url %><br /><br />
+    Video Thumbnail: <img src="<%= video.thumbnail_url %>"><br /><br />
 <% end %>

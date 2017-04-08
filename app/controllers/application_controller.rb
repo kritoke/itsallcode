@@ -9,6 +9,12 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "its_too_secret_dont_share"
   end
 
+  Yt.configure do |config|
+    config.log_level = :debug
+    config.api_key = ''
+  end
+
+
   get '/' do
     @videos = Video.all
     erb :'videos/index'

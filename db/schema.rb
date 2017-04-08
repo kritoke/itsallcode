@@ -19,9 +19,12 @@ ActiveRecord::Schema.define(version: 20170402233359) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string "url"
-    t.string "description"
-    t.string "language"
+    t.text    "description"
+    t.string  "thumbnail_url"
+    t.string  "title"
+    t.string  "language"
+    t.string  "published"
+    t.integer "view_count"
   end
 
 end
