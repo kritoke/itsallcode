@@ -44,7 +44,7 @@ class VideoController < ApplicationController
       if !params[:language].empty? && !params[:url].empty?
         url = Yt::URL.new params[:url]
         yt_video = Yt::Video.new id: url.id
-        Video.update(title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url, published: yt_video.published_at, yt_id: yt_video.id, language: params[:language])
+        Video.update(params[:id], title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url, published: yt_video.published_at, yt_id: yt_video.id, language: params[:language])
         video = Video.find_by(id: params[:id])
         video.language = video.slug
         video.save
