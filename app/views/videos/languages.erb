@@ -12,7 +12,7 @@
     <% @videos.each do |video| %>
       <section>
         <div class="video_thumb">
-          <img src="<%= video.thumbnail_url %>">
+          <a href="/<%= video.language %>/<%= video.id %>"><img src="<%= video.thumbnail_url %>"></a>
         </div>
         <div class="video_info">
           <a href="/<%= video.language %>/<%= video.id %>"><%= video.title %></a><br />
