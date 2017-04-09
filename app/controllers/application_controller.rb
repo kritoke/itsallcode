@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
   Yt.configure do |config|
     config.log_level = :debug
-    config.api_key = 'AIzaSyDzIF7acS99cw7J5zam_6mqkurWQh6XVZY'
+    config.api_key = ENV['ENV_YT_API']
   end
 
   get '/' do
