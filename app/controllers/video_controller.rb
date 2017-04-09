@@ -21,6 +21,7 @@ class VideoController < ApplicationController
 
   get '/:language/?' do
     @videos = Video.where(language: params[:language]) # make variable contain only :language
+    @language = @videos.deslug(params[:language])
     erb :'videos/languages'
   end
 

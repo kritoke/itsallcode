@@ -1,5 +1,9 @@
 @lost flexbox flex;
 $textColor:#000;
+$headerLinkTextColor: #000;
+$linkActiveColor: red;
+$linkTextColor: #000;
+$linkHoverColor: red;
 
 body {
   line-height: 1.6;
@@ -29,5 +33,26 @@ section {
   lost-column: 10/12 flex;
   width: 100%;
   padding-bottom: 10px;
-
+}
+.header a{
+  text-decoration: none;
+  color: $headerLinkTextColor;
+  opacity: 1;
+  transition: opacity .55s ease-in-out;
+  -moz-transition: opacity .55s ease-in-out;
+  -webkit-transition: opacity .55s ease-in-out;
+}
+.header a.active{
+  color: $linkActiveColor;
+}
+.header a:hover{
+  opacity: 0.5;
+}
+section a{
+  color: $linkTextColor;
+  text-decoration: none;
+}
+section a:hover{
+  color: $linkHoverColor;
+  text-decoration: underline;
 }
