@@ -1,6 +1,28 @@
-<% @videos.each do |video| %>
-Title: <%= video.title %><br />
-Description: <%= video.description %><br />
-    Language: <%= video.language %><br />
-    Video Thumbnail: <img src="<%= video.thumbnail_url %>"><br /><br />
-<% end %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>it's all code</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>it's all code</h1>
+    </div>
+    <% @videos.each do |video| %><section>
+
+        <div class="video_thumb">
+          <img src="<%= video.thumbnail_url %>">
+        </div>
+        <div class="video_info">
+          <a href="/<%= video.language %>/<%= video.id %>"><%= video.title %></a><br />
+          Language: <%= video.language %><br />
+          Published on <%= video.published %><br />
+          Views: <%= video.view_count %> <br />
+        </div>
+</section>
+    <% end %>
+
+  </div>
+</body>
+</html>

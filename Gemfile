@@ -11,7 +11,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
-gem 'yt'
+gem 'yt-core'
 gem 'yt-url', '~> 1.0.0.beta2'
 gem 'will_paginate'
 
