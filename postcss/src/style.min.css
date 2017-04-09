@@ -1,0 +1,16 @@
+@lost flexbox flex;
+$textColor:#000;
+
+body {
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Lora", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background:#181818;
+  color:$textColor;
+}
+.wrap {
+  lost-center: 80% flex;
+}
+.header, .navbar {
+  lost-column: 1;
+}
