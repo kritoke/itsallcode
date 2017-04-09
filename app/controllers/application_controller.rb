@@ -14,7 +14,6 @@ class ApplicationController < Sinatra::Base
     config.api_key = ''
   end
 
-
   get '/' do
     @videos = Video.all
     erb :'videos/index'
