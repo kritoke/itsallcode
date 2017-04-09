@@ -18,7 +18,10 @@
         <%=  @video.description%></pre>
       <% end %>
 
+      <form method="POST" action="/videos/<%= @video.id %>/delete">
+      <input type="submit" value="Delete Video" id="submit">
     </div>
+
   </div>
 </body>
 </html>

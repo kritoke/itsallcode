@@ -58,4 +58,14 @@ class VideoController < ApplicationController
     end
   end
 
+  post '/videos/:id/delete' do
+    video = Video.find_by(id: params[:id])
+    if logged_in?
+      video.destroy
+      redirect "/"
+    else
+      redirect '/login'
+    end
+  end
+
 end

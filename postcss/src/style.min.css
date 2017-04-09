@@ -39,7 +39,7 @@ section {
   padding-bottom: 10px;
 }
 .video_embed {
-  lost-column: 1;
+  lost-column: 1 flex;
 }
 .header a{
   text-decoration: none;
@@ -74,5 +74,6 @@ pre {
 /* make youtube embeds responsive*/
 iframe {
     width: 100%;
-    height: 56.25vw; /* 100 * (9/16) */
+    height: calc((100vw - 60px) * (9/16));
+    display: block;
 }
