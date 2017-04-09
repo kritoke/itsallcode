@@ -1,4 +1,29 @@
-Title: <%= @video.title %><br />
-    Language: <%= @video.language %><br />
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @video.yt_id %>" frameborder="0" allowfullscreen></iframe>
-<br />Description: <pre><%= @video.description %></pre>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>it's all code - <%= @video.title %></title>
+  <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1><a href="/">it's all code</a></h1>
+      <h2><%= @video.title %></h2>
+    </div>
+    <div class="video_embed">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @video.yt_id %>" frameborder="0" allowfullscreen></iframe><br />
+      Language: <%= @video.language %><br />
+      <%= if !@video.description.empty?
+        <<-HTML
+        <br />Description: <pre>
+        HTML
+          @video.description
+        <<-HTML
+          </pre>
+        HTML
+      end %>
+
+    </div>
+  </div>
+</body>
+</html>

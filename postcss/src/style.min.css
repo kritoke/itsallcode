@@ -21,6 +21,10 @@ body {
   font-size: 34px 50px;
   font-family: consolas,monaco,courier,"courier new",fixed-width;
 }
+.header h2 {
+  font-size: 28px 40px;
+  font-family: consolas,monaco,courier,"courier new",fixed-width;
+}
 section {
    lost-utility: clearfix;
    padding-left: 10px;
@@ -33,6 +37,9 @@ section {
   lost-column: 10/12 flex;
   width: 100%;
   padding-bottom: 10px;
+}
+.video_embed {
+  lost-column: 1;
 }
 .header a{
   text-decoration: none;
@@ -55,4 +62,12 @@ section a{
 section a:hover{
   color: $linkHoverColor;
   text-decoration: underline;
+}
+/* fix issues with pre going too far and not word wrapping */
+pre {
+  white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+  white-space: -pre-wrap; /* Opera */
+  white-space: -o-pre-wrap; /* Opera */
+  white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+  word-wrap: break-word; /* IE 5.5+ */
 }
