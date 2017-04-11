@@ -25,6 +25,15 @@ body {
   font-size: 28px 40px;
   font-family: consolas,monaco,courier,"courier new",fixed-width;
 }
+.nav {
+  lost-align: right;
+}
+.nav p {
+  font-weight: bolder;
+  font-size: 18px 26px;
+  font-family: consolas,monaco,courier,"courier new",fixed-width;
+  text-transform: uppercase;
+}
 section {
    lost-utility: clearfix;
    padding-left: 10px;

@@ -1,8 +1,30 @@
-<h1>Edit a Video</h1>
-<form action="/videos/<%= @video.id %>" method="POST">
-  <label for="url">Video URL: </label>
-  <input type="text" size="50" name="url" id="url" value="http://www.youtube.com/watch?v=<%= @video.yt_id %>" required><br />
-  <label for="language">Video Language: </label>
-  <input type="text" name="language" id="language" value="<%= @video.language %>" required>
-  <input type="submit" value="Edit Video" id="submit">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>it's all code</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="nav">
+        <% if logged_in? %>
+          <p><a href="/logout">Logout</a></p>
+          <% else %>
+            <p><a href="/login">Login</a> &middot; <a href="/signup">Signup</a></p>
+        <% end %>
+      </div>
+      <h1><a href="/">it's all code</a></h1>
+      <h2>Edit a Video</h2>
+    </div>
+
+    <form action="/videos/<%= @video.id %>" method="POST">
+      <label for="url">Video URL: </label>
+      <input type="text" size="50" name="url" id="url" value="http://www.youtube.com/watch?v=<%= @video.yt_id %>" required><br />
+      <label for="language">Video Language: </label>
+      <input type="text" name="language" id="language" value="<%= @video.language %>" required>
+      <input type="submit" value="Edit Video" id="submit">
+    </form>
+  </div>
+</body>
+</html>

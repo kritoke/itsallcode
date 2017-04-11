@@ -1,6 +1,29 @@
-<h3>Login</h3>
-<form action="/login" method="POST">
-  <input type="text" name="username" placeholder="Username">
-  <input type="password" name="password" placeholder="Password">
-  <input type="submit" value="submit">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>it's all code</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="nav">
+        <% if logged_in? %>
+          <p><a href="/logout">Logout</a></p>
+          <% else %>
+            <p><a href="/login">Login</a> &middot; <a href="/signup">Signup</a></p>
+        <% end %>
+      </div>
+      <h1><a href="/">it's all code</a></h1>
+      <h2>Login</h2>
+    </div>
+
+  <form action="/login" method="POST">
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" value="submit">
+  </form>
+
+  </div>
+</body>
+</html>
