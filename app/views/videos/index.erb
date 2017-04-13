@@ -17,23 +17,20 @@
       <h1>it's all code</h1>
     </div>
     <% @videos.each do |video| %>
-      <section>
         <div class="video_thumb">
           <a href="/<%= video.language %>/<%= video.id %>"><img src="<%= video.thumbnail_url %>"></a>
         </div>
         <div class="video_info">
-          <a href="/<%= video.language %>/<%= video.id %>"><%= video.title.first(35) %></a>
+          <a href="/<%= video.language %>/<%= video.id %>"><%= video.title.first(65) %></a>
           <% if logged_in? %>
             (<a href="/<%= video.language %>/<%= video.id %>/edit">edit</a>)
             <% end %>
           <br />
           Language: <a href="/<%= video.language %>"><%= video.language %></a><br />
-          Published on <%= video.published.in_time_zone('America/Chicago').to_datetime.strftime("%B %d, %Y at %l:%M %p Central") %><br />
+          Published on <%= video.published.in_time_zone('America/Chicago').to_datetime.strftime("%B %d, %Y at %l:%M %p Central") %>,
           Views: <%= video.view_count %> <br />
         </div>
-      </section>
     <% end %>
-
   </div>
 </body>
 </html>

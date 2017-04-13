@@ -35,40 +35,29 @@ body {
   text-transform: uppercase;
 }
 section {
-   lost-utility: clearfix;
-   padding-left: 10px;
+    lost-utility: clearfix;
 }
+
 .video_thumb {
   lost-column: 2/12 flex;
-  width: 100%
+  width: 100%;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 .video_info {
-  lost-column: 10/12 flex;
+  lost-column: 9/12 flex;
   width: 100%;
-  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-top: 20px;
 }
 .video_embed {
   lost-column: 1 flex;
 }
-.header a{
-  text-decoration: none;
-  color: $headerLinkTextColor;
-  opacity: 1;
-  transition: opacity .55s ease-in-out;
-  -moz-transition: opacity .55s ease-in-out;
-  -webkit-transition: opacity .55s ease-in-out;
-}
-.header a.active{
-  color: $linkActiveColor;
-}
-.header a:hover{
-  opacity: 0.5;
-}
-section a{
+a{
   color: $linkTextColor;
   text-decoration: none;
 }
-section a:hover{
+a:hover{
   color: $linkHoverColor;
   text-decoration: underline;
 }
@@ -85,4 +74,18 @@ iframe {
     width: 100%;
     height: calc((100vw - 60px) * (9/16));
     display: block;
+}
+.header a{
+  text-decoration: none;
+  color: $headerLinkTextColor;
+  opacity: 1;
+  transition: opacity .55s ease-in-out;
+  -moz-transition: opacity .55s ease-in-out;
+  -webkit-transition: opacity .55s ease-in-out;
+}
+.header a.active{
+  color: $linkActiveColor;
+}
+.header a:hover{
+  opacity: 0.5;
 }
