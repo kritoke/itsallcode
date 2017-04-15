@@ -1,7 +1,7 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
-  SIGNUP_ENABLED = true
+  SIGNUP_ENABLED = false
 
   configure do
     set :public_folder, 'public'

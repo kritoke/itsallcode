@@ -12,3 +12,4 @@ production:
   database: <%= ENV['DATABASE_NAME'] || 'sinatra' %>
   username: <%= ENV['DATABASE_USER'] || 'sinatra' %>
   password: <%= ENV['DATABASE_PASSWORD'] || 'sinatra' %>
+  pool: 5

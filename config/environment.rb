@@ -1,4 +1,4 @@
-ENV['SINATRA_ENV'] ||= "production"
+ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
 
@@ -13,7 +13,7 @@ configure :development do
 end
 
 configure :production do
- db = URI.parse('HEROKU_POSTGRESQL_PUCE_URL'|| 'postgres:///localhost/mydb')
+ db = URI.parse('DATABASE_URL'|| 'postgres:///localhost/mydb')
 
  ActiveRecord::Base.establish_connection(
    :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
@@ -26,4 +26,5 @@ configure :production do
 end
 
 set :database_file, 'database.yml'
+require "sinatra/activerecord/rake"
 require_all 'app'
