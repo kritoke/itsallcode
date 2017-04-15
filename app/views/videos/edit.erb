@@ -14,15 +14,13 @@
             <p><a href="/login">Login</a> &middot; <a href="/signup">Signup</a></p>
         <% end %>
       </div>
-      <h1><a href="/">it's all code</a></h1>
-      <h2>Edit a Video</h2>
+      <h1><a href="/videos">it's all code</a></h1>
+      <h2>Edit a Video - <%= @video.title %></h2>
     </div>
 
     <form action="/videos/<%= @video.id %>" method="POST">
       <label for="url">Video URL: </label>
-      <input type="text" size="50" name="url" id="url" value="http://www.youtube.com/watch?v=<%= @video.yt_id %>" required><br />
-      <label for="language">Video Language: </label>
-      <input type="text" name="language" id="language" value="<%= @video.language %>" required>
+      <input type="text" size="50" name="url" id="url" value="http://www.youtube.com/watch?v=<%= @video.yt_id %>" required>
       <input type="submit" value="Edit Video" id="submit">
     </form>
   </div>

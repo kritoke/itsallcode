@@ -1,8 +1,11 @@
 class VideoController < ApplicationController
-  include Slugifiable::InstanceMethods
-  extend Slugifiable::ClassMethods
 
-  get '/new/?' do
+  get '/videos/?' do
+    @videos = Video.all
+    erb :'videos/index'
+  end
+
+  get '/videos/new/?' do
     if logged_in?
       erb :'videos/new'
     else
@@ -13,19 +16,11 @@ class VideoController < ApplicationController
   post '/videos' do
     url = Yt::URL.new params[:url]
     yt_video = Yt::Video.new id: url.id
-    video = Video.create(title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url, published: yt_video.published_at, yt_id: yt_video.id, language: params[:language])
-    video.language = video.slug
-    video.save
-    redirect "/#{video.slug}/#{video.id}"
+    video = Video.create(title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url('high'), published: yt_video.published_at, yt_id: yt_video.id)
+    redirect "/videos/#{video.id}"
   end
 
-  get '/:language/?' do
-    @videos = Video.where(language: params[:language]) # make variable contain only :language
-    @language = @videos.deslug(params[:language])
-    erb :'videos/languages'
-  end
-
-  get '/:language/:id/edit' do
+  get '/videos/:id/edit' do
     if logged_in?
       @video = Video.find_by(id: params[:id])
       erb :'videos/edit'
@@ -34,24 +29,20 @@ class VideoController < ApplicationController
     end
   end
 
-  get '/:language/:id/?' do
+  get '/videos/:id/?' do
     @video = Video.find_by(id: params[:id])
     erb :'videos/show'
   end
 
   post '/videos/:id' do
-    video = Video.find_by(id: params[:id])
     if logged_in?
-      if !params[:language].empty? && !params[:url].empty?
+      if !params[:url].empty?
         url = Yt::URL.new params[:url]
         yt_video = Yt::Video.new id: url.id
-        Video.update(params[:id], title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url, published: yt_video.published_at, yt_id: yt_video.id, language: params[:language])
-        video = Video.find_by(id: params[:id])
-        video.language = video.slug
-        video.save
-        redirect "/#{video.slug}/#{params[:id]}"
+        Video.update(params[:id], title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url('high'), published: yt_video.published_at, yt_id: yt_video.id)
+        redirect "/videos/#{params[:id]}"
       else
-        redirect "/#{params[:language]}/#{params[:id]}/edit"
+        redirect "/videos/#{params[:id]}/edit"
       end
     else
       redirect "/login"
@@ -62,7 +53,7 @@ class VideoController < ApplicationController
     video = Video.find_by(id: params[:id])
     if logged_in?
       video.destroy
-      redirect "/"
+      redirect "/videos"
     else
       redirect '/login'
     end

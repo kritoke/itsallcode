@@ -9,7 +9,7 @@
     <div class="header">
       <div class="nav">
         <% if logged_in? %>
-          <p><a href="/logout">Logout</a></p>
+          <p><a href="/videos/new">New Video</a>  &middot; <a href="/logout">Logout</a></p>
           <% else %>
             <p><a href="/login">Login</a> &middot; <a href="/signup">Signup</a></p>
         <% end %>
@@ -19,7 +19,6 @@
     </div>
     <div class="video_embed">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @video.yt_id %>" frameborder="0" allowfullscreen></iframe><br />
-      Language: <%= @video.language %><br />
       <% if !@video.description.empty? %>
       <br />Description: <pre>
         <%=  @video.description%></pre>

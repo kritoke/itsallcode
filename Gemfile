@@ -13,7 +13,6 @@ gem 'bcrypt'
 gem 'tux'
 gem 'yt-core'
 gem 'yt-url', '~> 1.0.0.beta2'
-gem 'will_paginate'
 
 group :test do
   gem 'rspec'

@@ -1,8 +1,25 @@
-<h1>Post a Video</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>it's all code</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="nav">
+        <% if logged_in? %>
+          <p><a href="/videos/new">New Video</a>  &middot; <a href="/logout">Logout</a></p>
+          <% else %>
+            <p><a href="/login">Login</a> &middot; <a href="/signup">Signup</a></p>
+        <% end %>
+      </div>
+      <h1><a href="/">it's all code</a> - Post a Video</h1>
+    </div>
 <form action="/videos" method="POST">
-  <label for="url">Video URL: </label>
-  <input type="text" size="50" name="url" id="url" value="" required><br />
-  <label for="language">Video Language: </label>
-  <input type="text" name="language" id="language" value="" required>
+  <label for="url">Video URL from YouTube: </label>
+  <input type="text" size="50" name="url" id="url" value="" required>
   <input type="submit" value="Post Video" id="submit">
 </form>
+</body>
+</html>

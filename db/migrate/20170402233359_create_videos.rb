@@ -4,7 +4,6 @@ class CreateVideos < ActiveRecord::Migration[5.0]
       t.text :description
       t.string :thumbnail_url
       t.string :title
-      t.string :language
       t.string :published
       t.integer :view_count
       t.string :yt_id

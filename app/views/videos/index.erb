@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>it's all code</title>
+  <title>it's all code - Plain View</title>
   <link rel="stylesheet" type="text/css" href="/css/style.min.css">
 </head>
 <body>
@@ -9,24 +9,23 @@
     <div class="header">
       <div class="nav">
         <% if logged_in? %>
-          <p><a href="/logout">Logout</a></p>
+          <p><a href="/videos/new">New Video</a>  &middot; <a href="/logout">Logout</a></p>
           <% else %>
             <p><a href="/login">Login</a> &middot; <a href="/signup">Signup</a></p>
         <% end %>
       </div>
-      <h1>it's all code</h1>
+      <h1><a href="/">it's all code</a> - Plain View</h1>
     </div>
     <% @videos.each do |video| %>
         <div class="video_thumb">
-          <a href="/<%= video.language %>/<%= video.id %>"><img src="<%= video.thumbnail_url %>"></a>
+          <a href="/videos/<%= video.id %>"><img src="<%= video.thumbnail_url %>"></a>
         </div>
         <div class="video_info">
-          <a href="/<%= video.language %>/<%= video.id %>"><%= video.title.first(65) %></a>
+          <a href="/videos/<%= video.id %>"><%= video.title.first(65) %></a>
           <% if logged_in? %>
-            (<a href="/<%= video.language %>/<%= video.id %>/edit">edit</a>)
+            (<a href="/videos/<%= video.id %>/edit">edit</a>)
             <% end %>
           <br />
-          Language: <a href="/<%= video.language %>"><%= video.language %></a><br />
           Published on <%= video.published.in_time_zone('America/Chicago').to_datetime.strftime("%B %d, %Y at %l:%M %p Central") %>,
           Views: <%= video.view_count %> <br />
         </div>

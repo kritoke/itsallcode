@@ -1,7 +1,6 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
-
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
@@ -16,7 +15,7 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     @videos = Video.all
-    erb :'videos/index'
+    erb :'index'
   end
 
   get '/login/?' do
