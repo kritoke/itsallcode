@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "its_too_secret_dont_share"
+    set :session_secret, ENV['ENV_ITS_ALL_CODE_SECRET']
   end
 
   Yt.configure do |config|
