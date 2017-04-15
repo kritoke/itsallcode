@@ -1,6 +1,8 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
+  SIGNUP_ENABLED = true
+
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
@@ -42,11 +44,15 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/signup/?' do
-    erb :'users/signup'
+    if SIGNUP_ENABLED
+      erb :'users/signup'
+    else
+      erb :'users/signup-disabled'
+    end
   end
 
   post '/signup' do
-     if !params[:username].empty? && !params[:email].empty? && !params[:password].empty?
+     if !params[:username].empty? && !params[:email].empty? && !params[:password].empty? && SIGNUP_ENABLED
        if !User.find_by(username: params[:username])
          user = User.create(username: params[:username].downcase, email: params[:email], password: params[:password])
          session[:id] = user.id
@@ -68,6 +74,10 @@ class ApplicationController < Sinatra::Base
 
     def current_user
       User.find(session[:id])
+    end
+
+    def signup_enabled?
+      SIGNUP_ENABLED
     end
   end
 

@@ -48,7 +48,7 @@
             <section>
               <% if logged_in? %>
               <h2>Site Administration</h2>
-                <a href="/videos">Admin View</a> &middot; <a href="/videos/new">New Video</a>  &middot; <a href="/logout">Logout</a>                
+                <a href="/videos">Admin View</a> &middot; <a href="/videos/new">New Video</a>  &middot; <a href="/logout">Logout</a>
                 <% else %>
                   <h2>Login: </h2>
                   <form action="/login" method="POST">
@@ -58,17 +58,19 @@
                   </form>
             </section>
           </div>
-          <div>
-            <section>
-              <h2>Signup:</h2>
-              <form action="/signup" method="POST">
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="text" name="email" placeholder="E-Mail" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <input type="submit" value="submit">
-              </form>
-            </section>
-          </div>
+          <% if signup_enabled? %>
+            <div>
+              <section>
+                <h2>Signup:</h2>
+                <form action="/signup" method="POST">
+                  <input type="text" name="username" placeholder="Username" required>
+                  <input type="text" name="email" placeholder="E-Mail" required>
+                  <input type="password" name="password" placeholder="Password" required>
+                  <input type="submit" value="submit">
+                </form>
+              </section>
+            </div>
+            <% end %>
           <% end %>
         </div>
       </footer>
