@@ -13,7 +13,7 @@ configure :development do
 end
 
 configure :production do
- db = URI.parse('DATABASE_URL'|| 'postgres:///localhost/mydb')
+ db = URI.parse('HEROKU_POSTGRESQL_PUCE_URL'|| 'postgres:///localhost/mydb')
 
  ActiveRecord::Base.establish_connection(
    :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
