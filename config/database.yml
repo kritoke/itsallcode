@@ -1,0 +1,14 @@
+development:
+  adapter: sqlite3
+  database: database.db
+
+test:
+  adapter: sqlite3
+  database: database.db
+
+production:
+  adapter: postgresql
+  host: <%= ENV['DATABASE_HOST'] || 'db' %>
+  database: <%= ENV['DATABASE_NAME'] || 'sinatra' %>
+  username: <%= ENV['DATABASE_USER'] || 'sinatra' %>
+  password: <%= ENV['DATABASE_PASSWORD'] || 'sinatra' %>
