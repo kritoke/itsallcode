@@ -1,8 +1,12 @@
 class VideoController < ApplicationController
 
   get '/videos/?' do
-    @videos = Video.all
-    erb :'videos/index'
+    if logged_in?
+      @videos = Video.all
+      erb :'videos/index'
+    else
+      redirect '/login'
+    end
   end
 
   get '/videos/new/?' do
@@ -30,8 +34,12 @@ class VideoController < ApplicationController
   end
 
   get '/videos/:id/?' do
-    @video = Video.find_by(id: params[:id])
-    erb :'videos/show'
+    if logged_in?
+      @video = Video.find_by(id: params[:id])
+      erb :'videos/show'
+    else
+      redirect '/login'
+    end
   end
 
   post '/videos/:id' do

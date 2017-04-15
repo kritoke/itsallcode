@@ -13,7 +13,7 @@
 
     <!-- Header -->
       <header id="header">
-        <h1><a href="index.html"><strong>it's all code</strong> by Matt Rhone</a></h1>
+        <h1><a href="/"><strong>it's all code</strong> by Matt Rhone</a></h1>
         <nav>
           <ul>
             <li><a href="#footer" class="icon fa-info-circle">About/Admin</a></li>
@@ -38,7 +38,7 @@
           <div>
             <section>
               <h2>About it's all code</h2>
-              <p>This was a final project built in Sintara for the Community Flatiron School.  It was created to test skills relating to the lessons relating to Sinatra.  The design is based somewhat on the Multiverse Design from <a href="http://html5up.net">HTML5 UP</a>, with modifications done to use youtube videos instead of images. </p>
+              <p>This was a final project built in Sintara for the Community Flatiron School.  It was created to test skills relating to the lessons relating to Sinatra.  The main page design is based somewhat on the Multiverse Design from <a href="http://html5up.net">HTML5 UP</a>, with modifications done to use youtube videos instead of images. Admin area design is fairly simple, based on a lost grid layout.</p>
             </section>
             <p class="copyright">
               &copy; 2017, it's all code. Design: <a href="http://html5up.net">HTML5 UP</a>.
@@ -49,7 +49,7 @@
               <% if logged_in? %>
               <h2>Site Administration</h2>
                 <a href="/videos/new">New Video</a>  &middot; <a href="/logout">Logout</a><br />
-                <a href="/videos">Plain Video View</a> for Editing/Deleting
+                <a href="/videos">Admin View</a> for Editing/Deleting
                 <% else %>
                   <h2>Login: </h2>
                   <form action="/login" method="POST">

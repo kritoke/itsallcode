@@ -9,13 +9,12 @@
     <div class="header">
       <div class="nav">
         <% if logged_in? %>
-          <p><a href="/logout">Logout</a></p>
-          <% else %>
-            <p><a href="/login">Login</a> &middot; <a href="/signup">Signup</a></p>
+          <p><a href="/videos">Admin View</a> &middot; <a href="/videos/new">New Video</a>  &middot; <a href="/logout">Logout</a></p>
+        <% else %>
+          <p><a href="/login">Login</a> &middot; <a href="/signup">Signup</a></p>
         <% end %>
       </div>
-      <h1><a href="/">it's all code</a></h1>
-      <h2>Login</h2>
+      <h1><a href="/">it's all code</a> - Login</h1>
     </div>
 
   <form action="/login" method="POST">

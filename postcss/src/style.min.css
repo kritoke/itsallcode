@@ -89,3 +89,10 @@ iframe {
 .header a:hover{
   opacity: 0.5;
 }
+
+footer {
+      lost-utility: clearfix;
+      lost-align: center;
+      lost-column: 1 flex;
+      font-style: oblique;
+}

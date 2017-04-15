@@ -9,12 +9,12 @@
     <div class="header">
       <div class="nav">
         <% if logged_in? %>
-          <p><a href="/videos/new">New Video</a>  &middot; <a href="/logout">Logout</a></p>
-          <% else %>
-            <p><a href="/login">Login</a> &middot; <a href="/signup">Signup</a></p>
+          <p><a href="/videos">Admin View</a> &middot; <a href="/videos/new">New Video</a>  &middot; <a href="/logout">Logout</a></p>
+        <% else %>
+          <p><a href="/login">Login</a> &middot; <a href="/signup">Signup</a></p>
         <% end %>
       </div>
-      <h1><a href="/">it's all code</a> - Plain View</h1>
+      <h1><a href="/">it's all code</a> - Admin Video Listing</h1>
     </div>
     <% @videos.each do |video| %>
         <div class="video_thumb">
@@ -23,13 +23,16 @@
         <div class="video_info">
           <a href="/videos/<%= video.id %>"><%= video.title.first(65) %></a>
           <% if logged_in? %>
-            (<a href="/videos/<%= video.id %>/edit">edit</a>)
+            (<a href="/videos/<%= video.id %>/edit">edit</a>) (<a href="/videos/<%= video.id %>/delete">delete</a>)
             <% end %>
           <br />
           Published on <%= video.published.in_time_zone('America/Chicago').to_datetime.strftime("%B %d, %Y at %l:%M %p Central") %>,
           Views: <%= video.view_count %> <br />
         </div>
     <% end %>
+    <footer>
+      <p>&copy; 2017. it's all code.</p>
+    </footer>
   </div>
 </body>
 </html>
