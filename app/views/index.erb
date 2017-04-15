@@ -48,8 +48,7 @@
             <section>
               <% if logged_in? %>
               <h2>Site Administration</h2>
-                <a href="/videos/new">New Video</a>  &middot; <a href="/logout">Logout</a><br />
-                <a href="/videos">Admin View</a> for Editing/Deleting
+                <a href="/videos">Admin View</a> &middot; <a href="/videos/new">New Video</a>  &middot; <a href="/logout">Logout</a>                
                 <% else %>
                   <h2>Login: </h2>
                   <form action="/login" method="POST">
