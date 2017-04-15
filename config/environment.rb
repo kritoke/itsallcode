@@ -25,4 +25,5 @@ configure :production do
  )
 end
 
+set :database_file, 'database.yml'
 require_all 'app'

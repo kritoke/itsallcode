@@ -1,5 +1,5 @@
+
 require './config/environment'
-set :database_file, 'database.yml'
 
 
 if ActiveRecord::Migrator.needs_migration?
