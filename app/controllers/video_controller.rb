@@ -18,8 +18,7 @@ class VideoController < ApplicationController
   end
 
   post '/videos' do
-    url = Yt::URL.new params[:url]
-    yt_video = Yt::Video.new id: url.id
+    yt_video = Video.get_video(params[:url])
     video = Video.create(title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url('high'), published: yt_video.published_at, yt_id: yt_video.id)
     redirect "/videos/#{video.id}"
   end
@@ -45,8 +44,7 @@ class VideoController < ApplicationController
   post '/videos/:id' do
     if logged_in?
       if !params[:url].empty?
-        url = Yt::URL.new params[:url]
-        yt_video = Yt::Video.new id: url.id
+        yt_video = Video.get_video(params[:url])
         Video.update(params[:id], title: yt_video.title, description: yt_video.description, view_count: yt_video.view_count, thumbnail_url: yt_video.thumbnail_url('high'), published: yt_video.published_at, yt_id: yt_video.id)
         redirect "/videos/#{params[:id]}"
       else

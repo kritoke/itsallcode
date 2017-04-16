@@ -25,6 +25,5 @@ configure :production do
  )
 end
 
-set :database_file, 'database.yml'
 require "sinatra/activerecord/rake"
 require_all 'app'
